@@ -1,4 +1,5 @@
 {
+  "homepage": "https://vinayan00123.github.io/budgeted---shared-expense-tracker",
   "name": "react-example",
   "private": true,
   "version": "0.0.0",
@@ -8,7 +9,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
