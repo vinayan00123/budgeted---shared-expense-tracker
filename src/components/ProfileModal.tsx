@@ -67,15 +67,23 @@ export default function ProfileModal({ isOpen, onClose, user, groups, onSelectGr
                   alt="Profile" 
                   className="w-20 h-20 rounded-2xl shadow-lg border-2 border-white dark:border-zinc-800 object-cover bg-white" 
                 />
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-white truncate">{user.displayName}</h3>
-                  <div className="flex items-center gap-2 text-sm text-zinc-500 mt-1">
+                <div className="flex-1 min-w-0 relative">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h3 className="text-xl font-bold text-zinc-900 dark:text-white truncate">{user.displayName}</h3>
+                    {user.isAnonymous && (
+                      <span className="flex items-center gap-1.5 px-2.5 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider animate-pulse whitespace-nowrap">
+                        <div className="w-1 h-1 bg-emerald-500 rounded-full" />
+                        Pro Guest
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-zinc-500">
                     <Mail className="w-4 h-4 shrink-0" />
                     <span className="truncate">{user.email}</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-zinc-500 mt-1">
                     <Calendar className="w-4 h-4 shrink-0" />
-                    <span>Active Member</span>
+                    <span>{user.isAnonymous ? 'Exploration Mode Active' : 'Premium Member'}</span>
                   </div>
                 </div>
               </div>

@@ -192,8 +192,8 @@ export default function App() {
           try {
             await setDoc(userRef, {
               uid: currentUser.uid,
-              displayName: currentUser.displayName || (currentUser.isAnonymous ? 'Guest User' : currentUser.email?.split('@')[0]) || 'Unknown User',
-              email: currentUser.email || `guest-${currentUser.uid.substring(0,6)}@budgeted.local`,
+              displayName: currentUser.displayName || (currentUser.isAnonymous ? 'Guest Explorer' : currentUser.email?.split('@')[0]) || 'Unknown User',
+              email: currentUser.email || `guest.${currentUser.uid.substring(0,4)}@budgeted.pro`,
               photoURL: currentUser.photoURL,
               createdAt: serverTimestamp(),
             });
